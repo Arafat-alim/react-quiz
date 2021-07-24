@@ -1,14 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Quiz from "./Components/Quiz";
-import Answers from "./Components/Answers";
-import Questions from "./Components/Questions";
 
 ReactDOM.render(
   <React.StrictMode>
     <Quiz />
-    <Questions />
-    <Answers />
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -1,5 +1,5 @@
 import React from "react";
 const Answers = () => {
-  return <>Answers</>;
+  return <div>Answers</div>;
 };
 export default Answers;
