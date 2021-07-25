@@ -4,11 +4,13 @@ import Answers from "./Answers";
 const Questions = () => {
   return (
     <div>
-      <div>Questions</div>
-      <Answers />
-      <Answers />
-      <Answers />
-      <Answers />
+      <div className="question">Text of our Questions</div>
+      <div className="answers">
+        <Answers />
+        <Answers />
+        <Answers />
+        <Answers />
+      </div>
     </div>
   );
 };
