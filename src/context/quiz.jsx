@@ -1,10 +1,13 @@
 import { createContext, useReducer } from "react";
 import data from "../data";
+import { shuffleAnswers } from "../helper";
+
 const initialState = {
   // its an simple object
   currentQuestionIndex: 0,
   questions: data,
   showResults: false,
+  answers: shuffleAnswers(data[0]),
 };
 
 const reducer = (state, action) => {
@@ -15,11 +18,15 @@ const reducer = (state, action) => {
     const currentQuestionIndex = showResults
       ? state.currentQuestionIndex
       : state.currentQuestionIndex + 1;
+    const answers = showResults
+      ? []
+      : shuffleAnswers(state.questions[currentQuestionIndex]);
     return {
       //return an object
       ...state,
       currentQuestionIndex,
       showResults,
+      answers,
     };
   }
   if (action.type === "RESTART") {

@@ -6,18 +6,14 @@ const Questions = ({ questions }) => {
   //creating a state
   const [quizState] = useContext(QuizContest);
   const currentQuestion = quizState.questions[quizState.currentQuestionIndex];
-  console.log(
-    "questions",
-    quizState.questions[quizState.currentQuestionIndex].question
-  );
+  console.log("questions", currentQuestion);
   return (
     <div>
       <div className="question">{currentQuestion.question}</div>
       <div className="answers">
-        <Answers />
-        <Answers />
-        <Answers />
-        <Answers />
+        {quizState.answers.map((answer, index) => {
+          return <Answers answerText={answer} key={index.toString()} />;
+        })}
       </div>
     </div>
   );
