@@ -12,7 +12,10 @@ const Quiz = () => {
   // console.log("currentQuestionIndex", currentQuestionIndex);
   return (
     <div className="quiz">
-      <div className="score">Question 1/10</div>
+      <div className="score">
+        Question {quizState.currentQuestionIndex + 1}/
+        {quizState.questions.length}
+      </div>
       <Questions />
       <div
         className="next-button"
