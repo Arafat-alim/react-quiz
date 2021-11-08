@@ -2,6 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { QuizContest } from "../context/quiz";
 import Questions from "./Questions";
+import Results from "./Results";
 
 const Quiz = () => {
   const [quizState, dispatch] = useContext(QuizContest);
@@ -12,18 +13,23 @@ const Quiz = () => {
   // console.log("currentQuestionIndex", currentQuestionIndex);
   return (
     <div className="quiz">
-      <div className="score">
-        Question {quizState.currentQuestionIndex + 1}/
-        {quizState.questions.length}
-      </div>
-      <Questions />
-      <div
-        className="next-button"
-        // onClick={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
-        onClick={() => dispatch({ type: "NEXT_QUESTION" })}
-      >
-        Next Question
-      </div>
+      {!quizState.showResults ? (
+        <>
+          <div className="score">
+            Question {quizState.currentQuestionIndex + 1}/
+            {quizState.questions.length}
+          </div>
+          <Questions />
+          <div
+            className="next-button"
+            onClick={() => dispatch({ type: "NEXT_QUESTION" })}
+          >
+            Next Question
+          </div>
+        </>
+      ) : (
+        <Results quizState={quizState} />
+      )}
     </div>
   );
 };
