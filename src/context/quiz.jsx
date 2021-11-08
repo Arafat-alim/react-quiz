@@ -8,32 +8,50 @@ const initialState = {
   questions: data,
   showResults: false,
   answers: shuffleAnswers(data[0]),
+  currentAnswer: "",
+  correctAnswersCount: 0,
 };
 
 const reducer = (state, action) => {
-  //its a function
-  if (action.type === "NEXT_QUESTION") {
-    const showResults =
-      state.currentQuestionIndex === state.questions.length - 1;
-    const currentQuestionIndex = showResults
-      ? state.currentQuestionIndex
-      : state.currentQuestionIndex + 1;
-    const answers = showResults
-      ? []
-      : shuffleAnswers(state.questions[currentQuestionIndex]);
-    return {
-      //return an object
-      ...state,
-      currentQuestionIndex,
-      showResults,
-      answers,
-    };
+  switch (action.type) {
+    case "SELECT_ANSWER": {
+      const correctAnswersCount =
+        action.payload ===
+        state.questions[state.currentQuestionIndex].correctAnswer
+          ? state.correctAnswersCount + 1
+          : state.correctAnswersCount;
+      return {
+        ...state,
+        currentAnswer: action.payload,
+        correctAnswersCount,
+      };
+    }
+    case "NEXT_QUESTION": {
+      console.log("Reducer", state, action);
+      const showResults =
+        state.currentQuestionIndex === state.questions.length - 1;
+      const currentQuestionIndex = showResults
+        ? state.currentQuestionIndex
+        : state.currentQuestionIndex + 1;
+      const answers = showResults
+        ? []
+        : shuffleAnswers(state.questions[currentQuestionIndex]);
+      return {
+        //return an object
+        ...state,
+        currentQuestionIndex,
+        showResults,
+        answers,
+        currentAnswer: "",
+      };
+    }
+    case "RESTART": {
+      return initialState;
+    }
+    default: {
+      return state;
+    }
   }
-  if (action.type === "RESTART") {
-    return initialState;
-  }
-  console.log("reducer", state, action);
-  return state;
 };
 
 export const QuizContest = createContext();
