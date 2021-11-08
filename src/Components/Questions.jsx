@@ -6,7 +6,7 @@ const Questions = () => {
   //creating a state
   const [quizState, dispatch] = useContext(QuizContest);
   const currentQuestion = quizState.questions[quizState.currentQuestionIndex];
-  console.log("questions", currentQuestion);
+  // console.log("questions", currentQuestion);
 
   return (
     <div>

@@ -6,7 +6,7 @@ import Results from "./Results";
 
 const Quiz = () => {
   const [quizState, dispatch] = useContext(QuizContest);
-  console.log(quizState);
+  // console.log(quizState);
 
   // const [question, setQuestion] = useState([]);
   // const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // default value is zero

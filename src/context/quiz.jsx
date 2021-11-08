@@ -27,7 +27,7 @@ const reducer = (state, action) => {
       };
     }
     case "NEXT_QUESTION": {
-      console.log("Reducer", state, action);
+      //   console.log("Reducer", state, action);
       const showResults =
         state.currentQuestionIndex === state.questions.length - 1;
       const currentQuestionIndex = showResults

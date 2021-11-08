@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { QuizContest } from "../context/quiz";
 const Results = (props) => {
   const [quizState, dispatch] = useContext(QuizContest);
-  console.log("Answer ka booss ", quizState);
+  //   console.log("Answer ka booss ", quizState);
   return (
     <div className="results">
       <div className="congratulations">Congratulation!</div>
