@@ -1,7 +1,8 @@
 import React from "react";
 import Answers from "./Answers";
 
-const Questions = () => {
+const Questions = ({ questions }) => {
+  console.log(questions);
   return (
     <div>
       <div className="question">Text of our Questions</div>
