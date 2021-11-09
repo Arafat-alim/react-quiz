@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Header from "./Components/Header";
 import Quiz from "./Components/Quiz";
 import { QuizProvider } from "./context/quiz";
 import "./index.css";
@@ -7,6 +8,7 @@ import "./index.css";
 ReactDOM.render(
   <React.StrictMode>
     <QuizProvider>
+      <Header />
       <Quiz />
     </QuizProvider>
   </React.StrictMode>,
