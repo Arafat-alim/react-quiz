@@ -108,6 +108,10 @@ div {
   cursor: pointer;
   text-align: center;
 }
+.next-button:hover {
+  background-color: #0084da;
+  color: #fff;
+}
 
 .score {
   background: #fff;
